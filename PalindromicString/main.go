@@ -1,28 +1,25 @@
 package main
 
-import "fmt"
-
-func main() {
-
-	nums := []int{2, 3, 4}
-	sum := 0
-	for _, num := range nums {
-		sum += num
-	}
-	fmt.Println("sum:", sum)
-
-	for i, num := range nums {
-		if num == 3 {
-			fmt.Println("index:", i)
+func firstPalindrome(words []string) string {
+	for _, word := range words {
+		if isPalindrome(word) {
+			return word
 		}
-	}
 
-	kvs := map[string]string{"a": "apple", "b": "banana"}
-	for k, v := range kvs {
-		fmt.Printf("%s -> %s\n", k, v)
 	}
-    
-	for i in range kvs {
-		
+	return ""
+}
+
+func isPalindrome(word string) bool {
+	i := 0
+	j := len(word) - 1
+
+	for i < j {
+		if word[i] != word[j] {
+			return false
+		}
+		i++
+		j--
 	}
+	return true
 }
